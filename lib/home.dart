@@ -20,11 +20,68 @@ class _HomeState extends State<Home> {
 	 				)
 	 			],
 	 		),
-	 		drawer: new Drawer(),
+	 		drawer: _getDrawer(context),
 	 		bottomNavigationBar: new BottomNavigationBar(
 	 			items: _getFooterItems(),
 	 		),
 	 	);			
+	}
+
+	Drawer _getDrawer(BuildContext context){
+		var header = new DrawerHeader(child: new Material(),);
+
+		ListTile _getItem(Icon icon, String description, String route){
+			return new ListTile(
+				trailing: icon,
+				title: new Text(description),
+				onTap: () {
+					setState((){
+						if(route == "/close"){
+							Navigator.of(context).pop();							
+						}
+					});
+				}
+			);
+		}
+
+		ListView listView = new ListView(
+			children: <Widget>[
+				header,
+				_getItem(
+					new Icon(
+						Icons.movie
+					),
+					"Peliculas",
+					"/movies"
+				),
+				new Divider(
+					height: 5.0,
+				),
+				_getItem(
+					new Icon(
+						Icons.live_tv
+					),
+					"Televisión",
+					"/live_tv"
+				),
+				new Divider(
+					height: 5.0,
+				),
+				_getItem(
+					new Icon(
+						Icons.close
+					),
+					"Cerrar",
+					"/close"
+				),
+				
+			],
+		);
+
+		return new Drawer(
+			child: listView,
+		);
+
 	}
 
 	List<BottomNavigationBarItem> _getFooterItems(){
