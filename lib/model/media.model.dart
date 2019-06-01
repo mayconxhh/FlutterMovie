@@ -10,7 +10,8 @@ class MediaModel{
 	String releaseDate;
 	List<dynamic> genreIds;
 
-	String getPosterUrl() => getMediumPictureUrl(posterPath);
+	String getPosterMediaUrl() => getMediumPictureUrl(posterPath);
+	String getBackdropPathUrl() => getLargePictureUrl(backdropPath);
 
 	factory MediaModel(Map jsonMap){
 		try{
