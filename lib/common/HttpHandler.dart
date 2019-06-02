@@ -19,7 +19,7 @@ class HttpHandler{
 		var uri = new Uri.https(_baseUrl, '/3/movie/popular', {
 			'api_key': API_KEY,
 			'page': '1',
-			'lenguage': _lenguage
+			'language': _lenguage
 		});
 
 		return getJson(uri).then(((data) => 
