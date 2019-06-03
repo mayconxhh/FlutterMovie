@@ -11,6 +11,8 @@ class MediaModel{
 	List<dynamic> genreIds;
 
 	String getPosterMediaUrl() => getMediumPictureUrl(posterPath);
+	String getPosterLargeUrl() => getLargePictureUrl(posterPath);
+	String getBackdropPathMediaUrl() => getMediumPictureUrl(backdropPath);
 	String getBackdropPathUrl() => getLargePictureUrl(backdropPath);
 	String getGenres() => getGenreValues(genreIds);
 
